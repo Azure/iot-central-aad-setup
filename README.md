@@ -6,7 +6,7 @@ __Why would you need one?__ If there is a need to build a custom user experience
 
 To learn more about application management in Azure please visit the Azure docs site [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-application-management)
 
-To learn more about the Azure IoT Central REST APIs visit the Azure docs site [here](https://https://docs.microsoft.com/en-us/rest/api/iotcentral)
+To learn more about the Azure IoT Central REST APIs visit the Azure docs site [here](https://docs.microsoft.com/en-us/rest/api/iotcentral)
 
 
 ### __Perquisites__
