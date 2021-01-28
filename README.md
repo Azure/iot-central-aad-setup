@@ -2,7 +2,7 @@
 
 An Azure Active Directory Application is an Azure resource that deploys as part of your ecosystem and enables users with an identity to gain authorization to Azure services/resources/APIs.
 
-__Why would you need one?__ If there is a need to build a custom user experience as a compliment or replacement to the IoT Central user experience i.e. building a fit for purpose app for a specific type of role/usage. Alternatively you might want to embed IoT Central functionality directly into your existing application.
+__Why would you need one?__ If there is a need to build a custom user experience as a compliment to the IoT Central user experience i.e. building a fit for purpose app for a specific type of role/usage. Alternatively you might want to embed IoT Central functionality directly into your existing application.
 
 To learn more about application management in Azure please visit the Azure docs site [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-application-management)
 
@@ -23,14 +23,14 @@ User and credentials i.e., identity, username, password and profile are managed 
 \* When you initially set up your Azure account, you will have a Directory created for you. You can use this directory or create a new one.
 
 ### __Topology__
-The following diagram outlines how all the services and supporting concepts are related
+The following diagram outlines how all the services and supporting concepts are related.
 
 ![Drag Racing](images/figure1.png)
 
-The sign-in account represents the identity used to create the Azure account, subscription and directory.
+The sign-in account represents the identity used to create the Azure account, Subscription and Directory.
 - An Azure account is the main account to manage all your Azure resources. An Azure account can have many Azure Active Directories.
-- An Azure Active Directory can have many subscriptions but can only belong to one Azure account.
-- An Azure subscription is a logical container that is used to hold the details of any resources that are created/deployed as part of your Azure account. An Azure subscription can only belong to one Azure Active Directory.
+- An Azure Active Directory can have many Subscriptions but can only belong to one Azure account.
+- An Azure Subscription is a logical container that is used to hold the details of any resources that are created/deployed as part of your Azure account. An Azure Subscription can only belong to one Azure Active Directory.
 
 ## __Setting up an Azure Active Directory using the Azure Portal__
 Creating a Directory is a lightweight exercise. Therefore, if you make a mistake delete and start again.
@@ -54,7 +54,7 @@ Creating an Application is a lightweight exercise. Therefore, if you make a mist
 
 2.	Using the global search type in ‘Azure Active Directory’ and click on result returned.
 
-3.	If you are not in the correct Directory/Tenant use the “Switch Tenant” option and select the correct Directory. This will ensure you are using the correct Directory+Subscription combination
+3.	If you are not in the correct Directory/Tenant use the “Switch Tenant” option and select the correct Directory. This will ensure you are using the correct Directory+Subscription combination.
 
 4.	From the left menu, select “App registrations” and “New registration” from the content area menu bar.
 
@@ -62,19 +62,19 @@ Creating an Application is a lightweight exercise. Therefore, if you make a mist
 
     ![figure4](images/figure4.png)
 
-6.	Register the application and on success you will be presented with an Overview of the application. Ensure the Tenant ID matches that of the logged in user’s Directory+Subscription
+6.	Register the application and on success you will be presented with an Overview of the application. Ensure the Tenant ID matches that of the logged in user’s Directory+Subscription.
 
     ![figure5](images/figure5.png)
 
     From the Overview, there are two options that will be needed to be configured.
 
-7.	From the left menu, select “Authentication” and then use the “Add a platform” option. This will setup the application type
+7.	From the left menu, select “Authentication” and then use the “Add a platform” option. This will setup the application type.
 
 8.	From the returned options, pick “Single-page application”
 
     ![figure6](images/figure6.png)
 
-9.	From the selected result, configure the Redirect URL. This is the location AAD will return to after the user has authenticated. When configuring the client code to use this app, this will need to be matching. During the dev cycle this should be set up to return to the dev environment (port is not required and can be configured in the code). However, when deploying to production, this should be the final production Url. Please review the inline help to learn more about Redirect URL
+9.	From the selected result, configure the Redirect URI. This is the location AAD will return to after the user has authenticated. When configuring the client code to use this app, this will need to be matching. During the dev cycle this should be set up to return to the dev environment (port is not required and can be configured in the code). However, when deploying to production, this should be the final production Url. Please review the inline help to learn more about Redirect URI(s).
 
     ![figure7](images/figure7.png)
 
@@ -102,6 +102,6 @@ __Congratulations!__ You have now configurated an AAD application to use Azure I
 
 ## __Testing the AAD application setup__
 
-To test that this has been configured correctly, visit [this](http://github.com/iot-for-all/iotc-add-auth) repo and follow the setup and install instructions. You will need used your Tenant ID and Client ID from the created AAD application. The codebase is an interactive walkthrough that demonstrates the API calls and payloads returned and can be refactored in the base of own application.
+To test that this has been configured correctly, visit [this](http://github.com/iot-for-all/iotc-add-auth) repo and follow the setup and install instructions. You will need to  use your Tenant/Directory ID and Application/Client ID from the created AAD application. The codebase is an interactive walkthrough that demonstrates the API calls and payloads returned and can be refactored in the base of your own application.
 
 ![figure12](images/figure12.png)
