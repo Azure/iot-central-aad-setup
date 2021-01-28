@@ -1,15 +1,16 @@
 # Setting up an AAD application to work with IoT Central
 
-An Azure Active Directory Application is an Azure resource that deploys as part of your ecosystem and enables users with an identity to gain authorization to Azure services/resources/APIs.
+An Azure Active Directory Application is an Azure resource that deploys as part of your ecosystem and enables users with an identity to authenticate and be authorized to Azure services/resources/APIs.
 
 __Why would you need one?__ If there is a need to build a custom user experience as a compliment to the IoT Central user experience i.e. building a fit for purpose app for a specific type of role/usage. Alternatively you might want to embed IoT Central functionality directly into your existing application.
 
-To learn more about application management in Azure please visit the Azure docs site [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-application-management)
+- To learn more about application management in Azure please visit the Azure docs site [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-application-management).
 
-To learn more about the Azure IoT Central REST APIs visit the Azure docs site [here](https://docs.microsoft.com/en-us/rest/api/iotcentral)
+- The [Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview) helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts, and provide authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
 
+- To learn more about the Azure IoT Central REST APIs visit the Azure docs site [here](https://docs.microsoft.com/en-us/rest/api/iotcentral)
 
-### __Perquisites__
+## __Prerequisites__
 
 To complete the instructions in this guide you must have an Azure account with a Subscription and permissions to add services to that account. Click [here](https://azure.microsoft.com/en-us/free) to learn more about Azure Subscriptions.
 
@@ -28,19 +29,23 @@ The following diagram outlines how all the services and supporting concepts are 
 ![Drag Racing](images/figure1.png)
 
 The sign-in account represents the identity used to create the Azure account, Subscription and Directory.
+
 - An Azure account is the main account to manage all your Azure resources. An Azure account can have many Azure Active Directories.
 - An Azure Active Directory can have many Subscriptions but can only belong to one Azure account.
 - An Azure Subscription is a logical container that is used to hold the details of any resources that are created/deployed as part of your Azure account. An Azure Subscription can only belong to one Azure Active Directory.
 
 ## __Setting up an Azure Active Directory using the Azure Portal__
+
 Creating a Directory is a lightweight exercise. Therefore, if you make a mistake delete and start again.
+
+See also "Quickstart : [Setup a tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)"
 
 1. Visit [Azure Portal](https://portal.azure.com) and sign-in using the admin account.
 
    ![figure1](images/figure2.png)
 
 2. Using the global search type in ‘Azure Active Directory’ and click on result returned.
- 
+
 3. Review the current directory setup. In most scenarios using the Directory created with the account is recommended. However, if you have existing AAD Applications configured to use the default directory then creating a new one is recommended as test users can be added without affecting the default Directory.
 
    If you are creating a new, select “Create a tenant” from the Overview section and follow the instructions in the create wizard. Ensure you select the tenant type as “Azure Active Directory”. The rest of the information required is your choice.
@@ -49,6 +54,8 @@ Creating a Directory is a lightweight exercise. Therefore, if you make a mistake
 
 ## __Setting up the Azure Active Directory application__
 Creating an Application is a lightweight exercise. Therefore, if you make a mistake delete and start again.
+
+- See also "Quickstart : [Register an application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)"
 
 1.	Visit [Azure Portal](https://portal.azure.com) and sign-in using the user account.
 
@@ -68,23 +75,26 @@ Creating an Application is a lightweight exercise. Therefore, if you make a mist
 
     From the Overview, there are two options that will be needed to be configured.
 
-7.	From the left menu, select “Authentication” and then use the “Add a platform” option. This will setup the application type.
+7. From the left menu, select “Authentication” and then use the “Add a platform” option. This will setup the application type.
 
-8.	From the returned options, pick “Single-page application”
+8. From the returned options, pick “Single-page application”
 
     ![figure6](images/figure6.png)
 
-9.	From the selected result, configure the Redirect URI. This is the location AAD will return to after the user has authenticated. When configuring the client code to use this app, this will need to be matching. During the dev cycle this should be set up to return to the dev environment (port is not required and can be configured in the code). However, when deploying to production, this should be the final production Url. Please review the inline help to learn more about Redirect URI(s).
+9. From the selected result, configure the Redirect URI. This is the location AAD will return to after the user has authenticated. When configuring the client code to use this app, this will need to be matching. During the dev cycle this should be set up to return to the dev environment (port is not required and can be configured in the code). However, when deploying to production, this should be the final production Url. Please review the inline help to learn more about Redirect URI(s).
 
     ![figure7](images/figure7.png)
 
-10.	Once returned, select “API permissions” from the left menu. This allows you to add references to Azure’s set of API - Public, Org, Custom. Each API / Permission combination is known as a Scope. API providers will provide multiple Scopes. It is up to the API provider to decide how to implement each Scope within their services. Therefore, it is essential to understand the Scopes you are consuming. Microsoft Graph has an excellent Scope implementation and worth reviewing to understand more about how scopes are utilized.
+10. Once returned, select “API permissions” from the left menu. This allows you to add references to Azure’s set of API - Public, Org, Custom. Each API / Permission combination is known as a Scope. API providers will provide multiple Scopes. It is up to the API provider to decide how to implement each Scope within their services. Therefore, it is essential to understand the Scopes you are consuming. Microsoft Graph has an excellent Scope implementation and worth reviewing to understand more about how scopes are utilized.
 
-    By default, when creating an application, the Microsoft Graph Scope is added to your application. This allows the application to get profile information about the logged in user and is generally a requirement for most apps. Therefore, it is not recommended to remove this Scope. If you do, it can be added back later.
+- See also "Quickstart : [Configure an application to expose a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis)"
+- See also "Quickstart : [Configure a client application to access a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis)"
+
+  By default, when creating an application, the Microsoft Graph Scope is added to your application. This allows the application to get profile information about the logged in user and is generally a requirement for most apps. Therefore, it is not recommended to remove this Scope. If you do, it can be added back later.
 
     ![figure8](images/figure8.png)
 
-11.	Select the “Add a permission” option and then “APIs my organization uses”
+11. Select the “Add a permission” option and then “APIs my organization uses”
 
     ![figure9](images/figure9.png)
 
