@@ -16,7 +16,7 @@ To complete the instructions in this guide you must have an Azure account with a
 
 ### __Services to add to your Subscription__
 You will be adding two to three services.
-- An Azure Active Directory: This is the service that stores user membership and allows authentication*
+- An Azure Active Directory: This is the service that stores user membership and allows authentication. *
 - An Azure Active Directory application: This is the service that brokers the authentication/authorization of a user to a set of resources.
 - An Azure Web Apps service: A fit for purpose application that requires a user sign-in.  User and credentials, i.e., identity username, password, and profile, are managed by the OAUTH provider and fall outside the scope of this guide. However, for the purposes of this guide Microsoft Account will be the OAUTH provider and therefore you should have an MSA.
 
