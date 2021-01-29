@@ -2,7 +2,7 @@
 
 An Azure Active Directory Application is an Azure resource that deploys as part of your ecosystem and enables users with an identity to authenticate and be authorized to Azure services/resources/APIs.
 
-__Why would you need one?__ If there is a need to build a custom user experience as a compliment to the IoT Central user experience i.e. building a fit for purpose app for a specific type of role/usage. Alternatively you might want to embed IoT Central functionality directly into your existing application.
+__Why would you need one?__ If there is a need to build a custom user experience as a compliment to the IoT Central user experience, e.g., a fit for purpose app for a specific type of role/usage. Alternatively, you might want to embed IoT Central functionality directly into your existing application.
 
 - To learn more about application management in Azure please visit the Azure docs site [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-application-management).
 
