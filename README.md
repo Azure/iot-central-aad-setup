@@ -93,7 +93,7 @@ Creating an Application is a lightweight exercise. Therefore, if you make a mist
 
     ![figure8](images/figure8.png)
 
-11. Select the “Add a permission” option and then “APIs my organization uses”
+11. Select the “Add a permission” option and then “APIs my organization uses”.  To find it using the search box, enter “Microsoft IoT Central”
 
     ![figure9](images/figure9.png)
 
