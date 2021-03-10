@@ -111,6 +111,6 @@ __Congratulations!__ You have now configurated an AAD application to use Azure I
 
 ## __Testing the AAD application setup__
 
-To test that this has been configured correctly, visit [this](https://github.com/iot-for-all/iotc-aad-app) repo and follow the setup and install instructions. You will need to  use your Tenant/Directory ID and Application/Client ID from the created AAD application. The codebase is an interactive walkthrough that demonstrates the API calls and payloads returned and can be refactored in the base of your own application.
+To test that this has been configured correctly, visit [this](https://github.com/iot-for-all/iot-central-aad-app) repo and follow the setup and install instructions. You will need to  use your Tenant/Directory ID and Application/Client ID from the created AAD application. The codebase is an interactive walkthrough that demonstrates the API calls and payloads returned and can be refactored in the base of your own application.
 
 ![figure12](images/figure12.png)
